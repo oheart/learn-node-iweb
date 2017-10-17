@@ -1,0 +1,95 @@
+第一天
+1. Node.js 基本知识
+    1. 安装 Node.js
+    2. Node.js 能做什么
+    3. REPL + Node.js 基本用法(repl2)
+    4. npm、nrm、nvm
+2. 模块机制
+    1. CommonJS(http://javascript.ruanyifeng.com/nodejs/module.html)
+    2. require
+        1. 三种模块(书写规范)
+        2. 三种后缀
+        3. 查找规则
+        4. 缓存
+    3. module.exports vs exports
+    4. C++/Rust 扩展
+3. 实战：一个简单的爬虫
+第二天
+1. Node.js 核心概念
+    1. 单线程、异步 IO、事件
+    2. Event Loop
+    3. GC
+2. npm 概念及简单实用
+    1. npm 是什么，对 Node.js 影响
+    2. package.json
+    3. semver
+3. npm 使用
+    1. npmrc
+    2. npm scripts(https://docs.npmjs.com/misc/scripts)
+    3. npm init
+    4. 全局安装(命令行工具)
+4. 实战：发布一个 npm 包
+第三天
+1. 异步流程控制
+    1. Callback
+    2. Promise
+    3. Generator + co
+    4. async + await
+2. 实战：实现文件内容拼接的4种方式
+第四天
+1. Node.js 常见模块的使用
+    1. request
+    2. debug
+    3. moment
+    4. gulp
+    5. commander/yargs
+    6. colors/chalk
+    7. shelljs
+2. 实战：用 commander 编写一个命令行工具
+第五天
+1. Express
+    1. HTTP 基础
+    2. 路由
+    3. 模板引擎
+    4. 中间件 + session
+    5. 错误处理
+2. 实战：Express 搭建简单的 web 服务
+第六天
+1. MongoDB
+    1. MongoDB 是什么
+        1. 与传统 SQL 区别
+        2. BSON
+    2. MongoDB 的安装与使用
+        1. _id(ObjectId 生成规则), objectid-to-timestamp
+        2. 16MB 限制与 GridFS
+        3. GUI
+    3. Mongoose
+        1. Schema、Model、Entity
+        2. Mongoose 的基本使用
+2. 实战：Express + Mongoose 重构简单的 web 服务
+第七天
+1. 实战：从零搭建一个博客
+    1. 准备工作
+    2. 配置文件
+    3. 功能设计
+    4. 页面设计
+    5. 连接数据库
+    6. 注册、登出与登录
+    7. 文章
+    8. 留言
+    9. 404与错误页面
+第八天
+1. 实战：部署到阿里云
+    1. 注册阿里云与购买机器
+    2. 环境搭建(Node.js + MongoDB + Nginx)
+    3. pm2
+    4. 绑定域名
+
+
+
+
+
+
+
+
+

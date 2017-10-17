@@ -1,0 +1,19 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "1.readFile和readFileSync 同步和异步 2.require 同步的原因：     模块没加载进来无法使用     通常只在程序启动时使用一次   require 可以引入的3中模块：         核心模块         第三方模块         自己写的模块 3.npm (Node Package Manager)   nrm (Npm Registery Manager)      命令:npm i nrm -g 和nrm ls   作用：切换npm源,加快安装速度；切换到自定义内部npm源   nvm ()    命令:nvm use 8.3/system   https://github.com/creationix/nvm/blob/master/README.md",
+  "main": "fs.js",
+  "dependencies": {
+    "home": "^1.0.1",
+    "moment": "^2.19.1",
+    "repl": "^0.1.3",
+    "repl2": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

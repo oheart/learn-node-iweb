@@ -1,4 +1,4 @@
-实战： 发布一个npm包（利用randexp模块进行改造）
+### 实战： 发布一个npm包（利用randexp模块进行改造） ###
     1. mkdir iweb-xxx-randomjs
     2. cd iweb-xxx-randomjs
     3. npm init
@@ -10,4 +10,4 @@
     9. 实验二：npm unpublish iweb-xxx-randomjs@1.0.1，然后npm publish会失败，然后运行npm i iweb-xxx-randomjs@^1看安装那个版本，应该是1.0.2
 
 
-参考链接： https://www.npmjs.com/package/randexp
+[参考链接] (https://www.npmjs.com/package/randexp)

@@ -1,11 +1,12 @@
 #### 一、扩展阅读： ####
      事件可以用来做异步流程控制   
     https://www.npmjs.com/package/eventproxy
-### EventLoop ###
+### 二 、EventLoop ###
+
 一、参考链接：
    https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
    https://cnodejs.org/topic/57d68794cb6f605d360105bf
-二、六个阶段：
+####  六个阶段： ####
                    1,2,3,7,8,10,12,5,13              9,5,8,1,7,4,3,6,2
 
 1.timer           setTimeout + setInterval     A  5 13                     A 6   2    
@@ -15,15 +16,15 @@
 5.check                                        B   8 12                     B 7   3
 6.close callbacks   socket.on('close',callback)
 
-三、promise.nextTick(不是libuv的东西，是node层面的)
-    1.macrotask(宏任务，时间循环中每一阶段)
-      microtask(微任务，process.nextTick,Promise.then/catch)
-      注： Promise的构造函数是同步执行的
+###  三、promise.nextTick(不是libuv的东西，是node层面的)  ###
+    1.macrotask(宏任务，时间循环中每一阶段)  
+      microtask(微任务，process.nextTick,Promise.then/catch)  
+      注： Promise的构造函数是同步执行的  
     2.tips:
       process.nextTick(microtask)回调函数里调用自己也会将这个回调函数放到当前microtask末尾，可能导致死循环；
       setImmediate回调函数里调用自己会将这个回调函数放到下一次事件循环，会给其他阶段回调函数执行的机会（比如： fs.readFile的回调或者setTimeout的回调)；
     3.microtask最大长度1000
-四、GC（程序停止）
+### 四、GC（程序停止） ###
    1.为什么分新老生代？  为了提高垃圾回收的效率。
    2.新生代和老生代
         新生代（内存分配和回收频繁的区域）
@@ -44,7 +45,7 @@
             4.Mark-Compact触发条件：老生代内存不够用
         最大： 64位 ---》 1464MB， 32位 ---》 732MB
         参考链接： http://www.jianshu.com/p/4129a3fce7bb
-五、semver规范 
+### 五、semver规范  ### 
         http://semver.org/lang/zh-CN/
             版本格式： 主版本号.次版本号.修订号，版本号递增规则如下：
             1.主版本号：当你做了不兼容的API修改
@@ -57,7 +58,7 @@
                 @1:修订版本号或次版本号做了不兼容修改
                 @2:解决方法：写死版本
 
-六、npm使用
+### 六、npm使用 ### 
     npm i express --save      //安装并同时写入package.json的depedences
     npm i express --save-dev    //同时写入devdependencies
 
@@ -128,7 +129,7 @@
 
     npm addUser //(可能需要执行)
 
-七、实战： 发布一个npm包
+### 七、实战： 发布一个npm包 ###
     1. mkdir iweb-xxx-randomjs
     2. cd iweb-xxx-randomjs
     3. npm init

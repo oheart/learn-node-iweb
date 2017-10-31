@@ -1,0 +1,22 @@
+{
+  "name": "iweb-nuan-randomjs",
+  "version": "1.0.5",
+  "description": "根据正则表达式生成随机字符串",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "keywords": [
+    "random",
+    "regExp",
+    "gen",
+    "string"
+  ],
+  "author": "nuan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "randexp": "0.4.6"
+  },
+  "devDependencies": {}
+}

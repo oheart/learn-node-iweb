@@ -22,7 +22,7 @@ fs.readFile('./a.txt',(err,aContent) => {
                         console.error(err)
                         return;
                     }else{
-                        console.log(aContent + bContent + cContent)
+                        console.log('callback:  ' + aContent + bContent + cContent)
                     }
                 })
             }
@@ -47,7 +47,7 @@ function readFilePromise(filename){
 
 Promise.all([readFilePromise('./a.txt'),readFilePromise('./b.txt'),readFilePromise('./c.txt')])
     .then((res) => {
-        console.log(res.join(''))
+        console.log('promise:  ' + res.join(''))
     })
 
 
@@ -60,8 +60,18 @@ async function readFileAsync(){
     var aContent = await readFilePromiseAnother('./a.txt')
     var bContent = await readFilePromiseAnother('./b.txt')
     var cContent = await readFilePromiseAnother('./c.txt')
-    console.log(aContent + bContent + cContent)
+    console.log('async/await:  ' + aContent + bContent + cContent)
 }
 readFileAsync();
 
 //总结： await + promise 最好用
+
+
+
+
+//promise all + await
+async function readFileAsync1 () {
+    const contents = await Promise.all([readFilePromiseAnother('./a.txt'), readFilePromiseAnother('./b.txt'), readFilePromiseAnother('./c.txt')])
+    console.log('promise all + await:  '+ contents.join(''))
+}
+readFileAsync1()

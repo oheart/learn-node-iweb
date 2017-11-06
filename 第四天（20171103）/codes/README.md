@@ -1,7 +1,8 @@
 ### 常用模块
 
-1. *lodash (工作中常用)
-        [npm链接](https://www.npmjs.com/package/lodash)        [官网] (https://lodash.com/)  
+1. *lodash (工作中常用)  
+        [npm链接](https://www.npmjs.com/package/lodash) 
+        [官网] (https://lodash.com/)  
 2. axiosh (http client)
 3. cheerio (后端jQuery,解析html字符串)
 4. *debug --> 最常用的日志模块 (主要调试用，可根据环境变量开启不同类型的日志输出)     
@@ -72,11 +73,3 @@
 
 2. 定时抓彩票脚本，实现每天给自己发邮件，报告昨天开奖信息(cron+axios+cheerio+nodemailer)
 
-
-
-
-//todo  call,apply,bind区别
-
-bind
-    1.绑定this,返回一个新的函数
-    2.预传值

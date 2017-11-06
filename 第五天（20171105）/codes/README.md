@@ -3,14 +3,14 @@
 
 1. HTTP基础（http://www.ruanyifeng.com/blog/2016/08/http.html）
     - 《图解TCP/IP》 
-    - 请求方法 | 动作 （https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods）
+    - 请求方法 | 动作 （https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods)
         - 比如： GET、POST、PUT、DELETE、PATCH、OPTIONS
         - post、put、patch语义上的区别： post创建、put是用来覆盖更新、patch用来部分更新
-    - Headers(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers),存储了一些请求信息或者返回的响应信息
+    - Headers(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)   --> 存储了一些请求信息或者返回的响应信息
         - Content-Type (https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
             - 客户端带上content-type,服务端收到后根据content-type不同返回不同格式的响应体（body）
             - text/html（html页面）、text/plain（纯文本）、image/jpeg image/png（图片）、application/json（JSON）、application/xml（XML）
-        - Cookie(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie)：存储一些简单的用户信息
+        - Cookie(https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cookie) --> 存储一些简单的用户信息
         - Accept vs Content-Type: Accept表示接收什么格式，Content-Type表示发送的什么格式
         - Connection:keep-alive
             - http1.1之前一个请求到来创建一个连接，返回后销毁这个连接。http1.1加入了Connection:keep-alive，每个浏览器访问该页面时会维持这个连接，复用连接。HTTP协议是基于TCP协议之上的。

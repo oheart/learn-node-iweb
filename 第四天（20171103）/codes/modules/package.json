@@ -1,0 +1,20 @@
+{
+  "name": "modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "3.5.1",
+    "debug": "3.1.0",
+    "lodash": "4.17.4",
+    "moment": "2.19.1",
+    "nodemailer": "4.3.1",
+    "validator": "9.1.1"
+  }
+}

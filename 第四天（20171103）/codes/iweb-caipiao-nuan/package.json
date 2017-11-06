@@ -1,0 +1,20 @@
+{
+  "name": "iweb-caipiao-nuan",
+  "version": "1.0.0",
+  "description": "每天抓彩票开奖信息的定时任务",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "彩票，caipiao"
+  ],
+  "author": "nuan",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.17.0",
+    "cheerio": "1.0.0-rc.2",
+    "cron": "1.3.0",
+    "nodemailer": "4.3.1"
+  }
+}

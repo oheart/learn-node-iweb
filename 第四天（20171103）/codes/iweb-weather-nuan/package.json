@@ -1,0 +1,22 @@
+{
+  "name": "weather-command",
+  "version": "1.0.0",
+  "description": "天气命令行工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin":{
+     "tianqi": "./index"
+  },
+  "keywords": [
+    "天气，命令行，tianqi"
+  ],
+  "author": "nuan",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.17.0",
+    "commander": "2.11.0",
+    "easy-table": "1.1.0"
+  }
+}

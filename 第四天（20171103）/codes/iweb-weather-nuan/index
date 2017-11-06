@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+var axios = require('axios');
+var commander = require('commander');
+var Table = require('easy-table');
+
+
+var url = 'http://www.sojson.com/open/api/weather/json.shtml?city=';
+
+
+//用commander接收命令行参数
+commander
+    .version('0.1.0')
+    .usage('tianqi --city=[city]')
+    .option('-c, --city [city]', '输入城市名', '北京')
+    .parse(process.argv);
+
+console.log(commander)
+
+//第一步： 用axios取到数据
+axios.get(url + encodeURI(commander.city))
+.then(function(res){
+   // console.log(res.data)
+   //格式化打印
+   var data = res.data.data;
+//    console.log(data);
+   var t = new Table;
+   t.cell('湿度',data.shidu);
+   t.cell('pm2.5',data.pm25);
+   t.cell('空气质量',data.quality);
+   t.cell('温度',data.wendu);
+   t.cell('户外活动',data.ganmao);
+   t.newRow();
+   console.log(t.toString())
+})
+.catch(function(err){
+    console.log(err)
+})

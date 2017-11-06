@@ -1,8 +1,7 @@
 ### 常用模块
 
 1. *lodash (工作中常用)
-        [npm链接：](https://www.npmjs.com/package/lodash)        
-        [官网：] (https://lodash.com/)  
+        [npm链接](https://www.npmjs.com/package/lodash)        [官网] (https://lodash.com/)  
 2. axiosh (http client)
 3. cheerio (后端jQuery,解析html字符串)
 4. *debug --> 最常用的日志模块 (主要调试用，可根据环境变量开启不同类型的日志输出)     

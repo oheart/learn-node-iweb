@@ -27,3 +27,14 @@
     
 12. node http-server（hs命令）
 13. helloworld文件夹用express-generator自动生成
+14. https://github.com/i5ting/awesome-mac-practice2
+15. https://github.com/dev-reading/practical-node-tutorial
+
+// 将键绑定放入此文件中以覆盖默认值
+[
+    { "key": "cmd+1",           "command": "workbench.view.explorer" },
+    { "key": "cmd+2",           "command": "workbench.view.search" },
+    { "key": "cmd+3",           "command": "workbench.view.scm" },
+    { "key": "cmd+4",           "command": "workbench.view.debug" },
+    { "key": "cmd+5",           "command": "workbench.view.extensions" }
+]

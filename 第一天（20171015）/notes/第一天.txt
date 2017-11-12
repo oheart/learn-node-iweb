@@ -1,0 +1,134 @@
+
+1.前提：一定要打好 JavaScript 基础
+2.动力：兴趣+持之以恒
+3.观点：Node.js 只是个工具
+
+
+1. Node.js 基本知识
+    1. 安装 Node.js
+        1. 安装包安装（推荐）
+        2. 编译安装
+    2. Node.js为什么会火
+        1. V8快
+        2. npm如火如荼
+    3. Node.js 能做什么
+        1. 三层架构
+            1. 底层是：v8 + libuv + c++依赖（http-parser -> http, c-aras -> dns, zlib -> zlib, crypto -> crypto）
+            2. 中间层是：Node.js bindings + C/C++Addons
+            3. 上层是：API(核心模块：大部分是js写的，小部分C++)
+        2. 执行线程是单线程，底层libuv是多线程（IO 线程池）
+            1. libuv作用：
+                1. 事件循环（非常重要）
+                2. IO 线程池
+            2. v8作用：
+                1. js引擎，解释js的
+        3. 用 Node.js 的公司：
+            1. 国外的：Netflix + Google + PayPal
+            2. 国内的：BAT + 携程 + 饿了么 + 蘑菇街 + 大搜车 + 石墨文档 + 雪球 + Teambition + 花瓣 + Keep
+        4. 适合场景：
+            1. 不适合CPU密集型计算操作（解决方案：1. 写 C/C++/Rust Addon 2. 多线程）
+            2. 适合 IO 操作（单线程异步 IO）
+                1. 单线程异步 IO -> 你的大脑是 CPU，你的人是线程，异步 IO 好比你先点了一份外卖(外卖配送的过程是异步的)，点完之后又逛淘宝买了东西(快递的过程是异步的)，然后去玩游戏了（CPU密集计算）。
+                2. 多线程同步 IO -> 问题：C10k。鸣人影分身。
+                    1. 典型的有 php/java
+    4. REPL + Node.js 基本用法
+        1. REPL
+            1. 自动加载核心模块，名字跟核心模块的一样
+            2. _ 代表上一个表达式的结果
+        2. repl2，用法+原理
+        3. callback（回调函数）
+            1. error first(约定)，即 error 放到回调函数第一个参数
+            2. 同步 vs 异步写法优劣：同步 IO 阻塞线程，尽量用异步方法
+                1. tips: 有 callback 的一定是异步的吗？不一定。
+                2. require 是同步的。为什么？
+                    1. 模块没加载进来没法用（主要）
+                    2. 通常只在程序启动时加载一次
+    5. npm、nrm、nvm(3m)
+        1. npm: Node Package Manager
+            1. tip: 用 npm i 替代 npm install
+        2. nrm: Npm Registry Manager
+            1. npm i nrm -g
+            2. 切换 npm 源，加快安装速度。想要上传自己的模块，必需切换到官方 npm 源
+            3. 可以切换到自定义 npm 源，比如公司内部自己搭的
+        3. nvm: Node Vsersion Manager
+            1. https://github.com/creationix/nvm
+            2. nvm use xxx || nvm use system
+        4. nvm for windows: https://github.com/coreybutler/nvm-windows/releases
+            1. 下载 git，安装，使用 git bash
+            2. 选择 nvm-setup.zip
+            3. nvs
+2. 模块机制
+    1. CommonJS规范(http://javascript.ruanyifeng.com/nodejs/module.html)
+        1. 所有代码都运行在模块作用域，不会污染全局作用域。
+        2. 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。
+        3. 模块加载的顺序，按照其在代码中出现的顺序。
+    2. require 与 exports/module.exports
+        1. require可以传入以下几种路径
+            1. 不以相对路径/绝对路径开头，意味着想加载核心模块或者第三方模块
+            2. 相对路径/绝对路径，意味着想加载自己编写的模块
+        2. require 三类模块
+            1. 核心模块（优先级最高）
+            2. 自己写的文件/文件夹（require 文件夹默认读取package.json里的main字段，如果没有默认是index.js/index.json/index.node）
+            3. 第三方模块
+        3. require书写规范
+            1. 第一部分核心模块，第二部分第三方模块，第三部分自己写的文件/文件夹
+        4. require 三种后缀
+            1. .js（优先级最高，前提是：省略后缀）
+            2. .json
+            3. .node(addon)
+            4. require.extensions(不推荐使用)
+        5. require 查找规则（冒泡查找）
+            1. require 加载第三方模块时会尝试加载当前目录下的 node_modules 下的模块，如果找到则加载，如果找不到，往上一层目录下的 node_modules 查找。
+            2. console.log(require)
+        6. require 缓存
+            1. require.cache
+            2. require分三步(优先从缓存中加载，如果没有，则执行以下操作)：
+                1. 编译代码(前后加 module wrapper)
+                2. 加载到缓存（require.cache）,key是模块的绝对路径，value是编译后的代码
+                    1. 小技巧：可以删除require.cache里面的缓存，强制require下次重新编译代码
+                3. 返回 require 后的对象给调用者
+        7. import/export(ES7或ES8)
+    3. module.exports vs exports
+        1. module wrapper（传入了module, exports, require, __diranme, __filename）
+        2. 关系：
+            1. exports 是 module.exports 的别名，相当于：var obj = {}; exports = obj; module.exports = obj
+            2. require 的时候，用的是 module.exports
+            3. 扩展阅读：https://cnodejs.org/topic/5231a630101e574521e45ef8
+    4. C/C++/Rust 扩展
+        1. C++ -> NAN
+        2. Rust -> Neon
+        3. https://zhuanlan.zhihu.com/p/29758888
+3. 实战：一个简单的爬虫
+
+FAQ
+
+1. 如何区分require的库是核心的，还是第三方的，还是自己写的？
+    1. 是否是自己写的：
+        1. 核心模块和第三方模块都是直接通过模块名字引用，比如：require(‘http’), require(‘express’)；require 自己写的模块（文件/文件夹）则通常是相对路径开头/绝对路径开头。
+    2. 如何区分核心模块和第三方模块
+        1. 经验，或者说对官方 API （或者核心模块）熟悉程度
+    3. 是不是第三方模块都在 package.json里？
+        1. 不一定。
+            1. 早期 npm，用 npm i xxx 的时候不会写到 package.json 里，如果需要写到 package.json，则需要加 —save。同理，想添加到devDeps，需要添加 —save-dev，如：npm i mocha —save-dev
+            2. npm3，会把所有依赖的模块扁平化
+                1. 好处：
+                    1. 解决windows下文件路径过长的问题
+                    2. 解决了下载多次和加载多次同一模块的问题，占内存
+2. packge.json 全是第三方模块？
+    1. 是
+3. 当第三方模块和核心模块名字冲突时，如何require第三方模块？
+    1. 直接写相对/绝对路径
+4. 有了 module.exports 为什么还会有 exports？
+    1. 没有官方说明。我猜测使用简单
+
+
+
+
+
+
+
+
+
+
+
+

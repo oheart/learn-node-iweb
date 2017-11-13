@@ -1,5 +1,6 @@
 #### npm version -h
-####  Node 4.0+才原生支持promise（）
+####  Node 4.0+才原生支持promise 
+[node green](http://node.green/)
 ####  Node es6 promise 关系
 #### async同步写法  try catch
 #### callback Thunk Promise Generator Async  

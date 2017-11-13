@@ -4,7 +4,7 @@
 #### async同步写法  try catch
 #### callback Thunk Promise Generator Async  
      callback promise async
-#### npm info moment|grep github   |  npm info moment|grep homepage  
+#### npm info moment|grep github  或  npm info moment|grep homepage  
      可以过滤出某个模块的github地址或者主页（官方网站）
 ####  express : req res
 ####  

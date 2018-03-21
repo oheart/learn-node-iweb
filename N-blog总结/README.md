@@ -1,0 +1,23 @@
+## 实战：从零搭建一个博客
+- 留言
+- 404与错误页面
+- 日志
+- 测试
+- 扩展训练
+## focus
+- 联合索引创建规则：第一项是精确（或范围）查找的字段，第二项是排序用，第三项式过滤用（请深入查阅）
+- 所有集合默认会有一个{ _id: 1 } 的索引
+- .populate 用法，参考 mongoose 的文档
+- model插件和全局插件的区别参考知乎文章《从零开始写一个 MongoDB 驱动库》
+- 设计一个功能（比如留言）2和3可互换
+    - 设计数据库（有哪些字段，字段类型是什么）
+    - 设计页面/模板，需要用到哪些值，如：comments.ejs需要用到 comments 数组
+    - 设计 models/xxx.js，即操作数据库的函数，通常是按功能挨个写
+    - 修改代码+调试。
+- markdown: http://wowubuntu.com/markdown/
+- git 相关知识+.gitignore
+- 测试框架：mocha+supertest，其他的断言库还有 chai+should+expect。新兴的 ava
+- module.parent：当被require的时候存在，执行执行这个文件的时候是null
+- mocha: describe（形容一组测试）、it（具体的测试用例）、before（当前describe下所有it测试用例前执行）、after（所有it后）、beforeEach（每个it测试用例前执行）、afterEach（每个it后）
+    - describe.only，it.only 只测试当前测试用例，it.skip，describe.skip 用来跳过
+- supertest用法+agent(保持cookie的)，平常用法就是 supertest(app).xxx
